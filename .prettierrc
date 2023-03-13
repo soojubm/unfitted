@@ -1,0 +1,18 @@
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "semi": false,
+  "useTabs": false,
+  "proseWrap": "preserve",
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+
+  "ignorePath": ".prettierignore",
+  "disableLanguages": []
+}

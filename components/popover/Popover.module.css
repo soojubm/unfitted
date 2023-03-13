@@ -1,0 +1,24 @@
+.popover {
+  position: relative;
+}
+
+.menu {
+  width: 10rem;
+  padding: 0.5rem;
+  background: var(--color-background);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  /* todo add  */
+  box-shadow: 0px 10px 50px rgb(0 0 0 / 10%);
+  border-radius: var(--radius);
+  position: absolute;
+  left: 0;
+  top: calc(var(--size-medium) + var(--space-2));
+  /* z-index: var(--zindex-popover); */
+  z-index: 10;
+}
+
+.menu[data-align='right'] {
+  left: auto;
+  right: 0;
+}

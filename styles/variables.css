@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light dark;
+
+  --font-family: Pretendard, system-ui, sans-serif;
+
+  --font-size-huge: 2rem;
+  --font-size-large: 1.125rem;
+  --font-size-medium: 0.875rem;
+  --font-size-small: 0.75rem;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --font-line-height: 1.8;
+  --font-line-height-small: 1.5;
+
+  --navbar-height: calc(32px + 1.5rem);
+
+  --grid-margin: 5vw;
+
+  --gray0: #fff;
+  --gray100: #f6f6f6;
+  --gray200: #e0e5e3;
+  --gray400: #979d9a;
+  --gray600: #666;
+  --gray800: #343c38;
+
+  --color-primary: crimson;
+
+  --color-background: var(--gray0);
+  --color-background-weak: var(--gray100);
+  --color-background-strong: var(--gray800);
+  --color-border: var(--gray200);
+  --color-text: var(--gray800);
+  --color-text-light: var(--gray400);
+
+  --color-wait: #00b8d9;
+  --color-verified: #2465c7;
+  --color-confirmed: #36b37e;
+  --color-denied: #6554c0;
+  --color-canceled: #ff5630;
+
+  --size-huge: 4.5rem;
+  --size-large: 3rem;
+  --size-medium: 2rem;
+  --size-small: 1.5rem;
+  --size-tiny: 1rem;
+
+  --space-05: 0.125rem;
+  --space-1: 0.25rem;
+  --space-1-minus: calc(var(--space-1) * -1);
+  --space-2: 0.5rem;
+  --space-2-minus: calc(var(--space-2) * -1);
+  --space-3: 0.75rem;
+  --space-3-minus: calc(var(--space-3) * -1);
+  --space-4: 1rem;
+
+  --border: 1px solid var(--color-border);
+  --border-thin: null;
+  --border-thick: null;
+  --border-active: 1px solid var(--color-primary);
+
+  --radius: 6px;
+  --radius-round: 50%;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 8%);
+
+  --filter-group-width: 360px;
+
+  /* // todo navigation */
+  --zindex-menu: 10;
+  --zindex-modal: 20;
+
+  --zindex-overay: calc(var(--zindex-modal) - 1);
+}

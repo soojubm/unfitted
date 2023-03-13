@@ -1,0 +1,40 @@
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-tiny);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  background-color: var(--color-background-weak);
+  background: #f6f6f6;
+  font-size: 12px;
+  /* font-weight: var(--font-weight-bold); */
+
+  text-transform: lowercase;
+}
+
+.tag[data-status='pending'] {
+  /* background: ; */
+  /* color: var(--color-text); */
+}
+
+.tag[data-status='wait'] {
+  /* background: var(--gray100); */
+}
+
+.tag[data-status='denied'] {
+  /* background: #fff5f5;
+  color: crimson; */
+}
+.tag[data-status='canceled'] {
+  /* background: #fff5f5;
+  color: crimson; */
+}
+.tag[data-status='confirmed'] {
+  /* background: var(--color-confirmed); */
+  /* color: #fff; */
+
+  background: none;
+  border: 1px solid var(--color-confirmed);
+  color: var(--color-confirmed);
+}

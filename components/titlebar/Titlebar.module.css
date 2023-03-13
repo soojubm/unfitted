@@ -1,0 +1,17 @@
+.titlebar {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--grid-margin);
+  position: relative;
+  z-index: 3;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-background);
+  border-radius: 50%;
+}

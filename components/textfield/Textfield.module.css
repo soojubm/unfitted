@@ -1,0 +1,76 @@
+/* .reset-input {
+  background: var(--color-background-weak);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  font: inherit;
+  color: var(--color-text);
+} */
+
+.textfield {
+  flex: auto; /* for datePicker */
+  position: relative;
+}
+
+.textfield label {
+  display: block;
+  margin: 0 0 var(--space-1) 0;
+}
+
+.textfield input {
+  /* composes: reset-input; */
+  width: 100%;
+  height: var(--size-large);
+  padding: var(--space-2) var(--space-4);
+  border: var(--border);
+  background: var(--color-background);
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  font: inherit;
+  color: var(--color-text);
+}
+.textfield input:focus {
+  outline: 0;
+  background: var(--color-background);
+  box-shadow: var(--state-hover);
+}
+/* .textfield input:disabled {
+  border-color: var(--gray200);
+  background: var(--gray200);
+  cursor: not-allowed;
+} */
+.textfield input:read-only {
+  color: var(--color-text-light);
+  cursor: default;
+}
+
+.textfield .prefix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-large);
+  height: var(--size-large);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.textfield[data-size='small'] .prefix {
+  width: 36px;
+  height: 36px;
+  margin-left: 0.5rem;
+}
+.textfield[data-size='small'] input {
+  height: 36px;
+}
+
+/* for datefield / react-datepicker */
+.prefix + * input {
+  padding-left: 3rem;
+}
+
+/* for searchfield */
+.prefix + input {
+  padding-left: 3rem;
+}

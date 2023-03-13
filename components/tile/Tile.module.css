@@ -1,0 +1,21 @@
+.tile {
+  margin: var(--space-4) 0;
+  padding: 1rem;
+
+  padding: 1.5rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--color-background);
+
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tile[data-type='elevated'] {
+  box-shadow: var(--shadow);
+}
+
+.tile[data-size='small'] {
+  padding: 0.5rem 0.75rem 1rem;
+}

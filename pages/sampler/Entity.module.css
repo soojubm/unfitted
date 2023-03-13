@@ -1,0 +1,42 @@
+.entity {
+  width: 800px;
+  height: 96px;
+  position: relative;
+  z-index: 1;
+}
+
+.entity + .entity {
+  margin: 1.25rem 0 0 0;
+}
+.entity figure {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 96px;
+  margin: 0 1rem 0 0;
+  padding: 0 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  /* margin-right: var(--space-after-avatar-large); */
+  background-color: var(--color-background);
+}
+
+.entity b {
+  display: block;
+  font-size: var(--font-size-large);
+  line-height: var(--font-line-height-small);
+}
+.entity > span {
+  position: absolute;
+  left: -0.25rem;
+  top: -0.25rem;
+}
+
+.entity time {
+  display: block;
+  margin: 1rem 0 0 0;
+  color: var(--color-text-light);
+}

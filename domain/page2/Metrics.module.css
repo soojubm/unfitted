@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+}
+
+.inner {
+  margin: -0.5rem;
+}
+
+.item {
+  width: 25%;
+}
+.item[data-is-selected='true'] .icon {
+  transform: rotate(-180deg);
+}
+
+.item .value {
+  display: block;
+  margin: 0.75rem 0 0 0;
+}
+
+.item .value .percentage {
+  margin-left: 0.25rem;
+  /* font-size: 0.75rem; */
+}
+
+.item .icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.8rem;
+}
+
+.item p {
+  min-height: 64px;
+  margin: 0.75rem 0;
+  padding: 0 0 0.75rem 0;
+  border-bottom: var(--border);
+
+  font-size: 12px;
+  line-height: 1.5;
+}

@@ -1,0 +1,29 @@
+.container {
+}
+
+.overay {
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--zindex-overay);
+}
+
+.modal {
+  max-height: 80%;
+  max-width: 480px;
+  margin: 5% auto;
+  padding: 2rem;
+  background: var(--color-background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: modal 0.2s forwards;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: var(--zindex-modal);
+}

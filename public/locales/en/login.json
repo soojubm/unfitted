@@ -1,0 +1,9 @@
+{
+  "title": "LOGIN",
+  "userName": "EMAIL",
+  "userId": "ID",
+  "userPassword": "Password",
+  "userLogin": "LOGIN",
+  "userRequire": "Please enter your Passwords.",
+  "userLoginFail": "Please check your account information again."
+}

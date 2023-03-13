@@ -1,0 +1,168 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+/* @font-face {
+  font-family: 'LINESeedKR-Bd';
+  src: url('./LINESeedKR-Bd.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+} */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap'); */
+
+body,
+dl,
+dd,
+figure,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input[type='radio'] {
+  margin: 0;
+}
+ul,
+ol,
+menu,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+iframe,
+img,
+hr {
+  border: none;
+}
+main,
+picture {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+b,
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-bold);
+}
+html {
+  min-width: 320px;
+  height: 100%;
+  overflow-x: hidden;
+  font: 16px/ (var(--font-line-height)) var(--font-family);
+
+  font-family: var(--font-family);
+
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: contain;
+}
+body {
+  /* background: #fcfcfc; */
+  background: #fff;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--color-text);
+}
+select::-ms-expand {
+  display: none;
+}
+
+select:focus {
+  outline: 0;
+}
+
+input[type='date'] {
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: inherit;
+}
+input[type='date'] {
+  display: block;
+  max-height: 48px;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+input[type='date']::-webkit-inner-spin-button {
+  display: none;
+}
+
+img {
+  display: block;
+}
+
+::placeholder {
+  color: #999;
+}
+
+input:focus {
+  outline: 1px solid var(--color-primary);
+}
+
+input[type='search'] {
+  /* // for corner rounded on sarafri */
+  -webkit-appearance: none;
+}
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0.5rem;
+  height: auto;
+  padding: 0.125rem;
+}
+::-webkit-scrollbar {
+  display: block;
+}
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+::-webkit-scrollbar-thumb {
+  margin: 0.125rem;
+  background: var(--gray100);
+  border-radius: var(--radius);
+}
+::-webkit-scrollbar-button {
+  display: none;
+  background-color: inherit;
+}
+::-webkit-scrollbar-corner {
+  background-color: inherit;
+}

@@ -1,0 +1,18 @@
+{
+  "title": "리포트 테스트",
+
+  "total": "트랜잭션",
+  "responseRate": "응답률",
+  "successRate": "성공률",
+
+  "successCount": "성공 트랜잭션",
+  "failCount": "실패 트랜잭션",
+
+  "logout": "로그아웃",
+
+  "period": "Period",
+  "periodYesterday": "Yesterday",
+  "period7days": "7days",
+  "period30days": "30days",
+  "periodSelect": "Select"
+}

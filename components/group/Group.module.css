@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.25rem;
+}
+.container > * {
+  margin: 0.25rem;
+}
+
+.container[data-scroll='true'] {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: auto;
+  margin: 0 calc(-5vw - 0.25rem);
+  padding: 0 var(--grid-margin);
+}
+.group-bleeding > * {
+  width: 90px;
+}
+.group-bleeding b {
+  text-wrap: wrap;
+}

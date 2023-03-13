@@ -1,0 +1,60 @@
+.button-reset {
+  display: inline-block;
+  border-radius: 50%;
+}
+/* @mixin reset-button {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  > * {
+    pointer-events: none;
+  }
+} */
+
+.container {
+  --button-text: null;
+  --button-font-weight: var(--font-weight-bold);
+  --button-radius: var(--radius);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6rem;
+  height: var(--size-large);
+  padding: 0 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  box-sizing: border-box;
+  font-weight: bold;
+  position: relative;
+
+  /* @content;
+  &:hover:not(:disabled),
+  &.is-hover:not(:disabled) {
+    box-shadow: var(--state-hover);
+  }
+  &:focus,
+  &.is-focus {
+    outline: 0;
+    box-shadow: var(--state-focus); // hover override
+  }
+  // &:active {outline:0;animation:ripple2 0.2s linear forwards;}
+  &:visited {
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  } */
+}
+
+.container[data-size='small'] {
+  height: 36px;
+}
+.container[data-theme='secondary'] {
+  background: var(--gray100);
+  color: var(--color-primary);
+}

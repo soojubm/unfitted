@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  height: 36px;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  background: var(--color-background);
+  position: relative;
+  cursor: pointer;
+}
+
+.container label {
+  margin: 0 0 0 var(--space-3);
+  cursor: inherit;
+}
+
+.container select {
+  height: 100%;
+  padding: 0 calc(var(--size-medium)) 0 var(--space-3);
+  /* color: var(--color-primary); */
+
+  font-weight: var(--font-weight-bold);
+  cursor: inherit;
+}
+
+.container .indicator {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
