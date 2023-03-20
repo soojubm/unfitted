@@ -10,8 +10,9 @@ function Page() {
   // }, [])
 
   // useEffect(() => {
-  //   if (isExpiredRefreshToken()) router.push(ROUTES.LOGIN)
-  //   else if (localStorage.getItem('emailVerified') !== 'true') router.push(ROUTES.PASSWORD)
+  // if (isExpiredRefreshToken()) router.push(ROUTES.LOGIN)
+  // if (!localStorage.getItem(ACCESS_TOKEN)) router.push(ROUTES.LOGIN)
+  // else if (localStorage.getItem('emailVerified') !== 'true') router.push(ROUTES.PASSWORD)
   // }, [])
 
   // TODO metric data를 어디에서 관리하는 것이 좋은가. rendering 될 때 초기화되어야 함.
