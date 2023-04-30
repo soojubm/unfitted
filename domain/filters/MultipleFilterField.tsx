@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 import useFilter from './useFilter'
@@ -6,10 +6,9 @@ import useFilter from './useFilter'
 import Chip from 'components/chip'
 import Popover from 'components/popover'
 
-import useOutsideClick from 'hooks/useOutsideClick'
-
 import { getFilterLabel } from 'services/utils'
 import MenuItem from 'components/menuitem'
+import Backdrop from 'components/backdrop'
 
 interface MultipleFilterFieldProps {
   initialState: string
@@ -22,8 +21,8 @@ interface MultipleFilterFieldProps {
 const TARGET_INITIAL_STATE = false
 
 function MultipleFilterField(props: MultipleFilterFieldProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  useOutsideClick(ref, () => setIsOpen(TARGET_INITIAL_STATE))
+  // const ref = useRef<HTMLDivElement>(null)
+  // useOutsideClick(ref, () => setIsOpen(TARGET_INITIAL_STATE))
 
   const [isOpen, setIsOpen] = useState(TARGET_INITIAL_STATE)
   const handleTriggerClick = () => setIsOpen(prevState => !prevState)
@@ -38,7 +37,7 @@ function MultipleFilterField(props: MultipleFilterFieldProps) {
   const chipLable = getFilterLabel(props.options, filterValue)
 
   return (
-    <div ref={ref} style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }}>
       {props.type === 'sort' ? (
         <button
           type="button"
@@ -54,13 +53,20 @@ function MultipleFilterField(props: MultipleFilterFieldProps) {
         <Chip label={chipLable} onClick={handleTriggerClick} isExpandable />
       )}
       {isOpen && (
-        <Popover>
-          {props.options.map(option => {
-            return (
-              <MenuItem key={option.value} option={option} onMenuItemClick={handleMenuItemClick} />
-            )
-          })}
-        </Popover>
+        <div>
+          <Popover>
+            {props.options.map(option => {
+              return (
+                <MenuItem
+                  key={option.value}
+                  option={option}
+                  onMenuItemClick={handleMenuItemClick}
+                />
+              )
+            })}
+          </Popover>
+          <Backdrop onClick={handleTriggerClick}></Backdrop>
+        </div>
       )}
     </div>
   )
