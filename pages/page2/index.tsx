@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -11,6 +12,8 @@ import LayoutWide from 'layouts/LayoutWide'
 import Filters from 'domain/page2/Filters'
 import Avatar from 'components/avatar'
 import List from 'domain/page2/List'
+
+const DraggableSample = dynamic(import('domain/page2/draggable'))
 
 const navMenuList = [
   { label: 'section1', name: '1' },
@@ -80,24 +83,23 @@ function Page2() {
     })
   }
 
+  const [selectedCategory, setSelectedCategory] = useState<string[]>([])
+  const handleCategoryClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name } = event.currentTarget as any
+
+    const hasTarget = selectedCategory.includes(name)
+
+    const result = hasTarget
+      ? selectedCategory.filter(item => item !== name)
+      : [...selectedCategory, name]
+
+    setSelectedCategory(result)
+  }
+
   return (
     <LayoutWide>
       <ErrorBoundary FallbackComponent={() => <div>error</div>}>
-        <div className="story-container">
-          <button className="story">
-            {/* <Avatar size="huge" name="test" fallback={<AddIcon />} /> */}
-            <Avatar size="huge" name="test" fallback="ALL" />
-            <b className="story-name">전체</b>
-          </button>
-          <button className="story" data-is-active={true}>
-            <Avatar size="huge" name="test"></Avatar>
-            <b>카테고리1</b>
-          </button>
-          <button className="story">
-            <Avatar size="huge" name="test"></Avatar>
-            <b>카테고리1</b>
-          </button>
-        </div>
+        <DraggableSample />
 
         {/* <Tabs tabs={typeOptions} selected={selectedTab} onClick={handleTabClick} /> */}
         <br />
