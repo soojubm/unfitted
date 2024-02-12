@@ -360,3 +360,154 @@
 .story[data-is-active='true'] b {
   color: var(--color-primary);
 }
+
+.order-head {
+  position: relative;
+}
+.order-head-title {
+  @include text-title;
+}
+.order-head-description {
+}
+
+.order-item {
+  @include tile-elevated;
+}
+.order-item-head {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+}
+.order-item-head-type {
+  width: var(--size-large);
+  justify-content: center;
+}
+.order-item-head-time {
+  margin-left: var(--space-2);
+  color: var(--color-text-light);
+  font-size: var(--font-size-small);
+}
+.order-item-head-status {
+  margin-left: auto;
+  font-size: var(--font-size-small);
+}
+
+.order-item-foot {
+  margin: var(--space-3) 0 0 0;
+}
+.order-item-foot > * {
+  flex: auto;
+}
+
+.step {
+}
+.step-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+.step-item:before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: var(--gray200);
+  position: absolute;
+  left: 8px;
+  bottom: 0;
+}
+.step-item + .step-item {
+  padding: 1.5rem 0 0 0;
+}
+.step-item-icon {
+  @include avatar-container-tiny;
+  font-size: 0;
+}
+.step-item-label {
+  margin-left: var(--space-3);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-light);
+  line-height: var(--size-tiny);
+}
+.step-item-description {
+  width: 100%;
+  margin: var(--space-2) 0 0 2rem;
+}
+
+.is-active .step-item-icon {
+  border-color: var(--color-background-strong);
+  background: var(--color-background-strong);
+}
+.is-active .step-item-label {
+  color: var(--color-text);
+}
+/* // .is-active .step-space-dot {background:var(--color-primary);} */
+
+.is-vertical.step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.is-vertical .step-item {
+  display: block;
+  width: 33.3333%;
+  margin-top: 0;
+  padding-top: 0;
+  text-align: center;
+}
+.is-vertical .step-item:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-background-weak);
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+}
+.is-vertical .step-item-icon {
+  margin: 0 auto;
+  @include reset-position;
+}
+.is-vertical .step-item-label {
+  margin-left: 0;
+  margin-top: var(--space-2);
+}
+
+/* // 임시 */
+.item {
+  @include clearfix;
+  width: inherit;
+  position: relative;
+  z-index: 1;
+}
+.item:hover {
+  @include hover-item;
+}
+.item + .item {
+  margin: var(--space-after-item) 0 0 0;
+}
+.item-avatar {
+  @include item-avatar-large;
+}
+/* // todo is-secondary */
+.avatar.is-secondary,
+.item-avatar.is-secondary {
+  border: var(--border);
+  background-color: var(--color-background);
+}
+.item-name {
+  font-size: var(--font-size-medium);
+  color: var(--color-text);
+}
+.item-description {
+  display: block;
+  color: var(--color-text-light);
+  line-height: var(--font-line-height);
+}
+.item-description + .item-name {
+  margin-top: -0.125rem;
+}

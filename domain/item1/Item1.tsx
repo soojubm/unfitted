@@ -31,3 +31,7 @@ function Item1(props: Item1Props) {
 }
 
 export default Item1
+
+// todo
+// export * from './FileViewer';
+// export { default } from './FileViewer';

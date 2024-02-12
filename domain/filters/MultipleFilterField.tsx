@@ -55,15 +55,7 @@ function MultipleFilterField(props: MultipleFilterFieldProps) {
       {isOpen && (
         <div>
           <Popover>
-            {props.options.map(option => {
-              return (
-                <MenuItem
-                  key={option.value}
-                  option={option}
-                  onMenuItemClick={handleMenuItemClick}
-                />
-              )
-            })}
+            <Menu options={props.options} onClick={handleMenuItemClick} />
           </Popover>
           <Backdrop onClick={handleTriggerClick}></Backdrop>
         </div>
@@ -73,3 +65,20 @@ function MultipleFilterField(props: MultipleFilterFieldProps) {
 }
 
 export default MultipleFilterField
+
+// props 관리가 너무 복잡해지는데?
+// chip array - options / onClick
+interface MenuProps {
+  options: any
+  onClick: any
+}
+
+function Menu(props: MenuProps) {
+  return (
+    <>
+      {props.options.map((option: any) => {
+        return <MenuItem key={option.value} option={option} onMenuItemClick={props.onClick} />
+      })}
+    </>
+  )
+}
