@@ -1,15 +1,18 @@
 import { useCallback, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-const useToggle = (initialState = false) => {
-  const [state, setState] = useState(initialState)
+// defaultValue?: boolean,
+type test = [boolean, () => void, Dispatch<SetStateAction<boolean>>]
 
-  // Define and memorize toggler function in case we pass down the component,
-  // This function change the boolean value to it's opposite value
-  const toggle = useCallback(() => setState(state => !state), [])
+export function useToggle(defaultValue = false): test {
+  const [value, setValue] = useState(!!defaultValue)
 
-  return [state, toggle]
+  const toggle = useCallback(() => {
+    setValue(x => !x)
+  }, [])
+
+  return [value, toggle, setValue]
 }
-
 export default useToggle
 
 // const [accordions, setAccordions] = useState<string[]>([])

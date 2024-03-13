@@ -12,7 +12,7 @@ import Modal from 'components/modal'
 import Portal from 'components/portal'
 import Radio from 'components/radio'
 import Textfield from 'components/textfield'
-import Searchfield from 'components/searchfield'
+// import Searchfield from 'components/searchfield'
 import Select from 'components/select'
 import Tabs from 'components/tab'
 import Tag from 'components/tag'
@@ -46,10 +46,14 @@ function Sampler() {
   // const [selectedChip, setSelectedChip] = useState(dateFilterOptions[0].name)
 
   const handleChipClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLInputElement>) => {
-      const { name, value } = event.target as HTMLButtonElement | HTMLInputElement
-
-      console.log(name, value)
+    (
+      event:
+        | React.MouseEvent<HTMLButtonElement>
+        | React.FormEvent<HTMLInputElement>,
+    ) => {
+      const { name, value } = event.target as
+        | HTMLButtonElement
+        | HTMLInputElement
 
       setSelectedFilters(prevState => ({ ...prevState, [name]: value }))
     },
@@ -122,7 +126,11 @@ function Sampler() {
         <div>
           <Group>
             <Button label="버튼" onClick={() => console.log()} />
-            <Button size="small" label="버튼 스몰" onClick={() => console.log()} />
+            <Button
+              size="small"
+              label="버튼 스몰"
+              onClick={() => console.log()}
+            />
           </Group>
         </div>
       </article>
@@ -178,7 +186,11 @@ function Sampler() {
           <h3>Checkbox</h3>
         </header>
         <div>
-          <Checkbox name="checkbox" label="Checkbox" onChange={handleChipClick} />
+          <Checkbox
+            name="checkbox"
+            label="Checkbox"
+            onChange={handleChipClick}
+          />
         </div>
       </article>
       <h1 style={{ margin: '2rem 0 1rem' }}>Text inputs</h1>
@@ -202,14 +214,14 @@ function Sampler() {
           <h3>Searchfield</h3>
         </header>
         <div style={{ display: 'block' }}>
-          <Searchfield name="test" placeholder="global search" onChange={() => console.log()} />
+          {/* <Searchfield name="test" placeholder="global search" onChange={() => console.log()} /> */}
           <div style={{ height: '.75rem' }} />
-          <Searchfield
+          {/* <Searchfield
             name="test"
             size="small"
             placeholder="local search"
             onChange={() => console.log()}
-          />
+          /> */}
         </div>
       </article>
       <article className="c-tile">
@@ -217,7 +229,11 @@ function Sampler() {
           <h3>Datefield</h3>
         </header>
         <div>
-          <Datefield onChange={() => console.log()} startDate={startDate} endDate={endDate} />
+          <Datefield
+            onChange={() => console.log()}
+            startDate={startDate}
+            endDate={endDate}
+          />
         </div>
       </article>
 
@@ -262,11 +278,21 @@ function Sampler() {
         </header>
         <div style={{ display: 'block' }}>
           <div className="menulist">
-            <button className="menuitem" name="" value="" onClick={() => console.log()}>
+            <button
+              className="menuitem"
+              name=""
+              value=""
+              onClick={() => console.log()}
+            >
               menu item
               {/* {isChecked && <span>check</span>} */}
             </button>
-            <button className="menuitem" name="" value="" onClick={() => console.log()}>
+            <button
+              className="menuitem"
+              name=""
+              value=""
+              onClick={() => console.log()}
+            >
               menu item
               {/* {isChecked && <span>check</span>} */}
             </button>

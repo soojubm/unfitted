@@ -13,7 +13,7 @@ import Filters from 'domain/page2/Filters'
 import Avatar from 'components/avatar'
 import List from 'domain/page2/List'
 
-const DraggableSample = dynamic(import('domain/page2/draggable'))
+// const DraggableSample = dynamic(import('domain/page2/draggable'))
 
 const navMenuList = [
   { label: 'section1', name: '1' },
@@ -23,8 +23,6 @@ const navMenuList = [
 const INITIAL_VIEW_INDEX = 0
 
 function Page2() {
-  const { t } = useTranslation('')
-  // const router = useRouter()
   // const [selectedTab, handleTabClick] = useTab(typeOptions[0].value)
 
   // const entry = useIntersectionObserver(ref, {})
@@ -47,7 +45,9 @@ function Page2() {
     threshold: [0.5],
   }
 
-  const callback: IntersectionObserverCallback = (entries: IntersectionObserverEntry[]) => {
+  const callback: IntersectionObserverCallback = (
+    entries: IntersectionObserverEntry[],
+  ) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return
 
@@ -60,11 +60,9 @@ function Page2() {
       // vanilla에서는 여기서 observer.unobserve(entry.target). parameter observer를 받을 필요가 없음
       // const index = Math.round(pageYOffset / height)
       // entry.target.addEventListener('animationend')
-      console.log(pageYOffset, 'targer', dataset.index, ': ', targetOffsetTop)
+      // console.log(pageYOffset, 'targer', dataset.index, ': ', targetOffsetTop)
     })
   }
-
-  console.log(viewIndex)
 
   useEffect(() => {
     const observer = new IntersectionObserver(callback, options)
@@ -99,7 +97,7 @@ function Page2() {
   return (
     <LayoutWide>
       <ErrorBoundary FallbackComponent={() => <div>error</div>}>
-        <DraggableSample />
+        {/* <DraggableSample /> */}
 
         {/* <Tabs tabs={typeOptions} selected={selectedTab} onClick={handleTabClick} /> */}
         <br />
@@ -107,6 +105,7 @@ function Page2() {
         <br />
         <List />
 
+        {/* sticky */}
         <nav style={{ position: 'fixed', bottom: '0' }}>
           {navMenuList.map((item, index) => {
             return (

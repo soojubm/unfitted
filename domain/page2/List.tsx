@@ -83,8 +83,6 @@ function List() {
     setData(typeFilter === 'all' ? mockData : filtered)
   }, [typeFilter])
 
-  console.log(data)
-
   return (
     <section className={styles.container}>
       {/* TODO section head component */}

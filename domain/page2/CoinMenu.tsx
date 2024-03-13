@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { atom, useRecoilState } from 'recoil'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
-import Searchfield from 'components/searchfield'
+// import Searchfield from 'components/searchfield'
 import Item1 from 'domain/item1/Item1'
 import Chip from 'components/chip'
 import { lists } from 'services/constants'
@@ -69,13 +69,13 @@ function CoinMenu() {
         <Chip name="test" label="전체선택" onClick={handleAllClick} />
       </header>
       {/* <SearchBar /> */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="keyword"
           control={control}
           render={({ field }) => <Searchfield size="small" {...field} isAutoFocus placeholder="" />}
         />
-      </form>
+      </form> */}
       {/* <p>{tempselectedItem.filter((value) => !Number(value) ).join(', ') }</p> */}
       <div className="scrollbox">
         {searchedItems?.map(item => {

@@ -1,5 +1,4 @@
 import MultipleFilterField from 'domain/filters/MultipleFilterField'
-import { useTranslation } from 'next-i18next'
 import { atom } from 'recoil'
 
 import { TYPE_FILTER_NAME } from 'services/constants'
@@ -19,24 +18,11 @@ export const typeState = atom({
 
 function TypeFilter() {
   return (
-    <MultipleFilterField options={typeOptions} initialState={INITIAL_STATE} state={typeState} />
-    // <Select
-    //   hiddenLabel
-    //   name={TYPE_FILTER_NAME}
-    //   options={typeOptions}
-    //   selectedValue={filterValue}
-    //   onChange={handleFilter}
-    // />
-    // <div className="filter-row">
-    //   {/* <span className="filter-label"></span> */}
-    //   <div className="filter-group">
-    //     {/* <ChipGroup
-    //       options={typeOptions}
-    //       selectedValue={filterValue}
-    //       onClick={handleClick}
-    //     /> */}
-    //   </div>
-    // </div>
+    <MultipleFilterField
+      options={typeOptions}
+      initialState={INITIAL_STATE}
+      state={typeState}
+    />
   )
 }
 

@@ -20,12 +20,7 @@ function SortItem() {
   const { t } = useTranslation('')
 
   return (
-    <MultipleFilterField
-      options={sortingOptions}
-      initialState={INITIAL_STATE}
-      state={sortState}
-      // type="sort"
-    />
+    <MultipleFilterField options={sortingOptions} initialState={INITIAL_STATE} state={sortState} />
     //   <button
     //     onClick={handlePresentation}
     //     style={{ display: 'inline-flex', alignItems: 'center', height: '32px' }}
