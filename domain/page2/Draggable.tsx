@@ -45,11 +45,6 @@ interface PaginationProps {
 }
 
 function DraggableSample() {
-  const [showUIElements, setShowUIElements] = useState(false)
-  useEffect(() => {
-    setShowUIElements(true)
-  }, [])
-
   const [draggables, setDraggables] = useState({
     droppable: [{ id: '1' }, { id: '2' }],
     droppable2: [{ id: '3' }, { id: '4' }],
@@ -80,7 +75,6 @@ function DraggableSample() {
     }
   }
 
-  if (!showUIElements) return null
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">

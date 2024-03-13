@@ -57,3 +57,26 @@ function MultipleFilterField(props: Props) {
 }
 
 export default MultipleFilterField
+
+// props 관리가 너무 복잡해지는데?
+// chip array - options / onClick
+interface MenuProps {
+  options: any
+  onClick: any
+}
+
+function Menu(props: MenuProps) {
+  return (
+    <>
+      {props.options.map((option: any) => {
+        return (
+          <MenuItem
+            key={option.value}
+            option={option}
+            onMenuItemClick={props.onClick}
+          />
+        )
+      })}
+    </>
+  )
+}

@@ -8,10 +8,8 @@ interface PaginationProps {
   // setOffset: Dispatch<SetStateAction<number>>
   initialPageNumber: number
   totalPage: number
-  // totalCount: number // 페이지네이션에 필요가 없다. 서버에서 받아서 사용자에게 보여줌.
 }
 
-// offset을 서버에서 0으로 줄 수도 있고 1로 줄 수도 있다.
 const PAGE_INITIAL_OFFSET = 0
 const PAGE_SIZE = 5
 const countPerPage = 20
