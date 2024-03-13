@@ -20,10 +20,11 @@ function MultipleFilterField(props: Props) {
 
   const [label, setLabel] = useState('')
   const handleMenuItemClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name, value } = event.currentTarget as HTMLButtonElement
+
     const current = props.options.find(option => option.value === value)
     setLabel(current!.label)
 
-    const { name, value } = event.currentTarget as HTMLButtonElement
     router.push({
       pathname: router.pathname,
       query: { ...router.query, [name]: value },
