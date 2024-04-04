@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 // interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  theme?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary'
 
   type?: 'submit' | 'button'
   name?: string
@@ -15,7 +15,16 @@ interface ButtonProps {
   size?: 'medium' | 'small'
 }
 
-function Button({ name, label, theme, type, isDisabled, isFullWidth, size, onClick }: ButtonProps) {
+function Button({
+  name,
+  label,
+  variant,
+  type,
+  isDisabled,
+  isFullWidth,
+  size,
+  onClick,
+}: ButtonProps) {
   return (
     <button
       type={type || 'button'}
@@ -24,7 +33,7 @@ function Button({ name, label, theme, type, isDisabled, isFullWidth, size, onCli
       disabled={isDisabled}
       onClick={onClick}
       style={{ width: isFullWidth ? '100%' : 'auto' }}
-      data-theme={theme || 'primary'}
+      data-theme={variant || 'primary'}
       data-size={size || 'medium'}
     >
       {label}

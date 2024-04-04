@@ -1,7 +1,5 @@
 type Option = {
-  // id: string | numbe
-  name: string
-  value: string | number
+  value: string
   label: string
 }
 

@@ -41,13 +41,4 @@ export const mockData: Item[] = [
     type: 'type1',
     status: '',
   },
-  {
-    id: '2',
-    createDatetime: '2022-12-06T02:33:16.377',
-    name: 'name2',
-    status: '',
-    amount: 200,
-    tradeAmount: 20000,
-    type: 'type2',
-  },
 ]

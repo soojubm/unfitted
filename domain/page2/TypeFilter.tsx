@@ -5,10 +5,10 @@ import { TYPE_FILTER_NAME } from 'services/constants'
 
 const INITIAL_STATE = 'all'
 
-export const typeOptions: Option[] = [
-  { name: TYPE_FILTER_NAME, label: '전체', value: INITIAL_STATE },
-  { name: TYPE_FILTER_NAME, label: 'type1', value: 'type1' },
-  { name: TYPE_FILTER_NAME, label: 'type2', value: 'type2' },
+export const tabOptions: Option[] = [
+  { label: '전체', value: INITIAL_STATE },
+  { label: 'type1', value: 'type1' },
+  { label: 'type2', value: 'type2' },
 ]
 
 export const typeState = atom({
@@ -19,7 +19,7 @@ export const typeState = atom({
 function TypeFilter() {
   return (
     <MultipleFilterField
-      options={typeOptions}
+      options={tabOptions}
       initialState={INITIAL_STATE}
       state={typeState}
     />

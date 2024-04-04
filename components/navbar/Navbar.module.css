@@ -41,17 +41,3 @@
 .navbar menu a.is-active {
   border-bottom: 3px solid var(--color-primary);
 }
-
-.language {
-  margin-left: auto;
-}
-
-.language-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-medium);
-  height: var(--size-medium);
-  border-radius: 50%;
-  background-color: var(--gray100);
-}

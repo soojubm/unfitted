@@ -30,6 +30,3 @@ export const isExpiredRefreshToken = () => {
 export function getFilterLabel(options: Option[], value: string) {
   return options.find(option => option.value === value)?.label
 }
-
-// TODO hooks
-export const getQueryValue = (key: string) => {}

@@ -1,13 +1,7 @@
-import { useEffect } from 'react'
 import Avatar from 'components/avatar'
-import Tag from 'components/tag'
-
 import dayjs from 'dayjs'
 import { useRecoilValue } from 'recoil'
-
 import { useTranslation } from 'next-i18next'
-
-import styles from './List.module.css'
 
 function Item(props: Item) {
   return (
@@ -17,7 +11,11 @@ function Item(props: Item) {
         <time className="order-item-head-time">2022. 12. 05. 15:32</time>
         <b className="order-item-head-status">배달완료</b>
       </header>
-      <div className="item" data-size="large" style={{ margin: 'var(--space-3) 0 var(--space-4)' }}>
+      <div
+        className="item"
+        data-size="large"
+        style={{ margin: 'var(--space-3) 0 var(--space-4)' }}
+      >
         <Avatar
           name="test"
           size="medium"
@@ -25,44 +23,14 @@ function Item(props: Item) {
           fallback="test"
         />
         <b className="item-name">쩜순이네닭강정</b>
-        <p className="item-description" style={{ display: 'flex', alignItems: 'center' }}>
+        <p
+          className="item-description"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
           <span>떡볶이</span>
-          <span
-            className="material-symbols-outlined"
-            // style="font-size: var(--font-size-small); margin-top: -1px"
-          >
-            {' '}
-            close{' '}
-          </span>
+          <span>close</span>
           <span>5</span>
-          {/* <!-- <span> 외 1건</span> --> */}
         </p>
-      </div>
-      <section className="step is-vertical">
-        <div className="step-item is-active">
-          <span className="step-item-icon">1</span>
-          <h3 className="step-item-label">주문확인</h3>
-        </div>
-        <div className="step-item">
-          <span className="step-item-icon">2</span>
-          <h3 className="step-item-label">조리중</h3>
-        </div>
-        <div className="step-item">
-          <span className="step-item-icon">3</span>
-          <h3 className="step-item-label">배달중</h3>
-        </div>
-        <div className="step-item">
-          <span className="step-item-icon">4</span>
-          <h3 className="step-item-label">배달완료</h3>
-        </div>
-      </section>
-      <div className="stack order-item-foot">
-        <button className="chip">
-          <span className="chip-label">재주문</span>
-        </button>
-        <button className="chip">
-          <span className="chip-label">후기작성</span>
-        </button>
       </div>
       <small>네이버는 왜 주문 내역 삭제을 숨길 수 있게 했나?</small>
     </div>

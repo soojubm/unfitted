@@ -3,34 +3,29 @@ import { useTranslation } from 'next-i18next'
 
 import MultipleFilterField from 'domain/filters/MultipleFilterField'
 
-const INITIAL_STATE = '1'
+const sortingOptions = [
+  { value: '1', label: '최신순' },
+  { value: '2', label: '오래된순' },
+  { value: '5', label: '가격높은순' },
+  { value: '6', label: '가격낮은순' },
+]
+
 export const sortState = atom({
   key: 'sortState',
-  default: INITIAL_STATE,
+  default: sortingOptions[0].value,
 })
-
-const sortingOptions = [
-  { name: 'sorting', value: INITIAL_STATE, label: '최신순' },
-  { name: 'sorting', value: '2', label: '오래된순' },
-  { name: 'sorting', value: '5', label: '가격높은순' },
-  { name: 'sorting', value: '6', label: '가격낮은순' },
-]
 
 function SortItem() {
   const { t } = useTranslation('')
 
   return (
-    <MultipleFilterField options={sortingOptions} initialState={INITIAL_STATE} state={sortState} />
-    //   <button
-    //     onClick={handlePresentation}
-    //     style={{ display: 'inline-flex', alignItems: 'center', height: '32px' }}
-    //   >
-    //     정렬: {filterValue || sortingOptions[0].label}
-    //     <span className="indicator">
-    //       <Image src="/arrow_down.svg" alt="indicator" width="18" height="18" />
-    //     </span>
-    //   </button>
-    // </div>
+    <>
+      <MultipleFilterField
+        options={sortingOptions}
+        initialState={sortingOptions[0].value}
+        state={sortState}
+      />
+    </>
   )
 }
 

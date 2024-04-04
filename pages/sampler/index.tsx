@@ -1,7 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import Image from 'next/image'
-
-import DatePicker from 'react-datepicker'
 
 import Avatar from 'components/avatar'
 import Button from 'components/button'
@@ -25,7 +23,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 import Datefield from 'components/datefield'
 
 import useTab from 'components/tab/hooks'
-import Item1 from './Item1'
 import Layout from 'layouts/LayoutWide'
 import { useDateRange } from 'components/datefield/hook'
 
@@ -42,7 +39,6 @@ function Sampler() {
   const [startDate, endDate, handleDateRangeChange] = useDateRange()
 
   const [selectedFilters, setSelectedFilters] = useState(initialFilters)
-  // const [selectedTab, handleTabClick] = useTab(typeOptions[1].value)
   // const [selectedChip, setSelectedChip] = useState(dateFilterOptions[0].name)
 
   const handleChipClick = useCallback(
@@ -82,26 +78,15 @@ function Sampler() {
         )
       })}
       <br />
-      <h3>Icon indicator - avatar tiny</h3>
       <div className="icon-indicator">1</div>
-      <div className="icon-indicator">2</div>
       <br />
-      <h1 style={{ margin: '2rem 0 1rem' }}>Color tokens</h1>
-      <article className="c-tile">
+      <div style={{ display: 'flex', gap: '.5rem' }}>
         <TokenItem color="var(--color-primary)" />
-      </article>
-      <article className="c-tile">
         <TokenItem color="var(--gray100)" />
-      </article>
-      <article className="c-tile">
         <TokenItem color="var(--gray200)" />
-      </article>
-      <article className="c-tile">
         <TokenItem color="var(--gray600)" />
-      </article>
-      <article className="c-tile">
         <TokenItem color="var(--gray800)" />
-      </article>
+      </div>
       <style jsx>{`
         .c-tile {
           margin: 1rem 0;
@@ -118,101 +103,54 @@ function Sampler() {
           border-radius: var(--radius);
         }
       `}</style>
-      <h1 style={{ margin: '2rem 0 1rem' }}>Actions</h1>
       <article className="c-tile">
-        <header>
-          <h3>Button</h3>
-        </header>
-        <div>
-          <Group>
-            <Button label="버튼" onClick={() => console.log()} />
-            <Button
-              size="small"
-              label="버튼 스몰"
-              onClick={() => console.log()}
-            />
-          </Group>
-        </div>
+        <Group>
+          <Button label="버튼" onClick={() => console.log()} />
+          <Button
+            size="small"
+            label="버튼 스몰"
+            onClick={() => console.log()}
+          />
+        </Group>
       </article>
       <article className="c-tile">
-        <header>
-          <h3>Chip</h3>
-        </header>
-        <div style={{ display: 'block' }}>
-          <Group>
-            <Chip name="" label="칩" onClick={() => console.log()} />
-            <Chip name="" label="모달 열기" onClick={handleModalClick} />
-            <Select
-              options={[
-                { name: 'test1', value: '1', label: '레이블1' },
-                { name: 'test2', value: '2', label: '레이블2' },
-              ]}
-              name="select"
-              label="셀렉트"
-              onChange={() => console.log()}
-              selectedValue="test1"
-            />
-          </Group>
-        </div>
-      </article>
-      <article className="c-tile">
-        <header>
-          <h3>Tab</h3>
-        </header>
-        {/* <Tabs tabs={typeOptions} onClick={handleTabClick} />
-            <Tabs
-              type="segmented"
-              tabs={typeOptions}
-              // selected={selectedTab}
-              onClick={handleTabClick}
-            /> */}
-      </article>
-      <article className="c-tile">
-        <header>
-          <h3>Radio group</h3>
-        </header>
-        <div>
-          <Radio
-            id="radio1"
-            name="radio"
-            label="Radio button"
-            isChecked={true}
+        <Group>
+          <Chip name="" label="칩" onClick={() => console.log()} />
+          <Chip name="" label="모달 열기" onClick={handleModalClick} />
+          <Select
+            options={[
+              { value: '1', label: '레이블1' },
+              { value: '2', label: '레이블2' },
+            ]}
+            name="select"
+            label="셀렉트"
             onChange={() => console.log()}
+            selectedValue="test1"
           />
-        </div>
+        </Group>
       </article>
       <article className="c-tile">
-        <header>
-          <h3>Checkbox</h3>
-        </header>
-        <div>
-          <Checkbox
-            name="checkbox"
-            label="Checkbox"
-            onChange={handleChipClick}
-          />
-        </div>
-      </article>
-      <h1 style={{ margin: '2rem 0 1rem' }}>Text inputs</h1>
-      <article className="c-tile">
-        <header>
-          <h3>Textfield</h3>
-        </header>
-        <div style={{ display: 'block' }}>
-          <Textfield
-            id="test10"
-            name="test"
-            label="Label"
-            placeholder="입력해주세요."
-            onChange={() => console.log()}
-          />
-          <div style={{ height: '.75rem' }} />
-        </div>
+        <Radio
+          id="radio1"
+          name="radio"
+          label="Radio button"
+          isChecked={true}
+          onChange={() => console.log()}
+        />
       </article>
       <article className="c-tile">
-        <header>
-          <h3>Searchfield</h3>
-        </header>
+        <Checkbox name="checkbox" label="Checkbox" onChange={handleChipClick} />
+      </article>
+      <article className="c-tile">
+        <Textfield
+          id="test10"
+          name="test"
+          label="Label"
+          placeholder="입력해주세요."
+          onChange={() => console.log()}
+        />
+      </article>
+      <article className="c-tile">
         <div style={{ display: 'block' }}>
           {/* <Searchfield name="test" placeholder="global search" onChange={() => console.log()} /> */}
           <div style={{ height: '.75rem' }} />
@@ -225,78 +163,52 @@ function Sampler() {
         </div>
       </article>
       <article className="c-tile">
-        <header>
-          <h3>Datefield</h3>
-        </header>
-        <div>
-          <Datefield
-            onChange={() => console.log()}
-            startDate={startDate}
-            endDate={endDate}
-          />
-        </div>
-      </article>
-
-      <h1 style={{ margin: '2rem 0 1rem' }}>Visual informations</h1>
-      <article className="c-tile">
-        <header>
-          <h3>Avatar</h3>
-        </header>
-        <div>
-          <Group>
-            <Avatar name="아바타" size="huge" fallback="정진" />
-            <Avatar name="아바타" size="large" fallback="정진" />
-            <Avatar name="아바타" size="medium" fallback="정진" />
-            <Avatar name="아바타" size="small" fallback="진" />
-          </Group>
-        </div>
+        <Datefield
+          onChange={() => console.log()}
+          startDate={startDate}
+          endDate={endDate}
+        />
       </article>
       <article className="c-tile">
-        <header>
-          <h3>Tab</h3>
-        </header>
-        <div style={{ display: 'block' }}>
-          <Group>
-            <Tag label="태그" />
-            <Tag label="confirmed" status="" />
-          </Group>
-        </div>
+        <Group>
+          <Avatar name="아바타" size="huge" fallback="정진" />
+          <Avatar name="아바타" size="large" fallback="정진" />
+          <Avatar name="아바타" size="medium" fallback="정진" />
+          <Avatar name="아바타" size="small" fallback="진" />
+        </Group>
+      </article>
+      <article className="c-tile">
+        <Group>
+          <Tag label="태그" />
+          <Tag label="confirmed" status="" />
+        </Group>
       </article>
 
       <article className="c-tile">
-        <header>
-          <h3>Tab</h3>
-        </header>
         <div style={{ display: 'block' }}>
           <Tooltip content="툴팁 테스트">Tooltip</Tooltip>
         </div>
       </article>
-      <h1 style={{ margin: '2rem 0 1rem' }}>Menus</h1>
       <article className="c-tile">
-        <header>
-          <h3>Dropdown menus</h3>
-        </header>
-        <div style={{ display: 'block' }}>
-          <div className="menulist">
-            <button
-              className="menuitem"
-              name=""
-              value=""
-              onClick={() => console.log()}
-            >
-              menu item
-              {/* {isChecked && <span>check</span>} */}
-            </button>
-            <button
-              className="menuitem"
-              name=""
-              value=""
-              onClick={() => console.log()}
-            >
-              menu item
-              {/* {isChecked && <span>check</span>} */}
-            </button>
-          </div>
+        <div className="menulist">
+          <button
+            className="menuitem"
+            name=""
+            value=""
+            onClick={() => console.log()}
+          >
+            menu item
+            {/* {isChecked && <span>check</span>} */}
+          </button>
+          <button
+            className="menuitem"
+            name=""
+            value=""
+            onClick={() => console.log()}
+          >
+            menu item
+            {/* {isChecked && <span>check</span>} */}
+          </button>
         </div>
       </article>
       {isOpen && (
@@ -329,5 +241,72 @@ function TokenItem(props: TokenItemProps) {
       ></figure>
       <span>{props.color}</span>
     </div>
+  )
+}
+
+function Item1(props: Item1) {
+  return (
+    <>
+      <style jsx>{`
+        .entity {
+          width: 800px;
+          height: 96px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .entity + .entity {
+          margin: 1.25rem 0 0 0;
+        }
+        .entity figure {
+          float: left;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 120px;
+          height: 96px;
+          margin: 0 1rem 0 0;
+          padding: 0 0.75rem;
+          border: var(--border);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          /* margin-right: var(--space-after-avatar-large); */
+          background-color: var(--color-background);
+        }
+
+        .entity b {
+          display: block;
+          font-size: var(--font-size-large);
+          line-height: var(--font-line-height-small);
+        }
+        .entity > span {
+          position: absolute;
+          left: -0.25rem;
+          top: -0.25rem;
+        }
+
+        .entity time {
+          display: block;
+          margin: 1rem 0 0 0;
+          color: var(--color-text-light);
+        }
+      `}</style>
+      <div className="entity">
+        <figure>
+          <Image
+            src={props.src}
+            alt="Vercel Logo"
+            width={props.width || 72}
+            height={props.height || 16}
+          />
+        </figure>
+        <b>{props.name}</b>
+        <p>{props.publicKey}</p>
+        <span>
+          <Tag label={props.status} />
+        </span>
+        <time>{props.date}</time>
+      </div>
+    </>
   )
 }

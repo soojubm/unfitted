@@ -11,20 +11,20 @@ const AUTH_PORT = process.env.NEXT_PUBLIC_ENV_AUTH_PORT
 const AUTH_BASE_URL = `${AUTH_HOST}:${AUTH_PORT}`
 
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/page2',
-        permanent: true,
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   async rewrites() {
     return [
       {
-        source: '/page2/:path*',
-        destination: `${API_BASE_URL}/page2/:path*`,
+        source: '/:path*',
+        destination: `${API_BASE_URL}/:path*`,
       },
       {
         source: '/user/:path*',

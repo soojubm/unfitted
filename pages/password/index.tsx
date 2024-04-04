@@ -19,8 +19,6 @@ type FormValues = {
   passwordConfirm: string
 }
 
-const initialValues = { password: '', passwordConfirm: '' }
-
 function Password() {
   const { t } = useTranslation('password')
 
@@ -32,7 +30,7 @@ function Password() {
     formState: { errors },
     handleSubmit,
   } = useForm<FormValues>({
-    defaultValues: initialValues,
+    defaultValues: { password: '', passwordConfirm: '' },
   })
 
   const onSubmit: SubmitHandler<FormValues> = async data => {
@@ -56,8 +54,7 @@ function Password() {
   const pwd = watch('password')
 
   useEffect(() => {
-    if (!localStorage.getItem(ACCESS_TOKEN)) router.push(ROUTES.LOGIN)
-    // if (localStorage.getItem('emailVerified') === 'true') router.push(ROUTES.PAGE1)
+    // if (!localStorage.getItem(ACCESS_TOKEN)) router.push(ROUTES.LOGIN)
   }, [router])
 
   return (
@@ -70,7 +67,6 @@ function Password() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <PageHead title={t('title')} />
-        <div style={{ margin: '1rem 0' }}></div>
         <Controller
           name="password"
           control={control}
@@ -87,9 +83,10 @@ function Password() {
             />
           )}
         />
-        {errors?.password && <Alert description={errors?.password?.message || ''} />}
+        {errors?.password && (
+          <Alert description={errors?.password?.message || ''} />
+        )}
 
-        <div style={{ margin: '1rem 0' }}></div>
         <Controller
           name="passwordConfirm"
           control={control}
@@ -99,7 +96,11 @@ function Password() {
               if (value !== pwd) {
                 return t('newPasswordNotEqual') || 'Passwords do not match.'
               }
-              if (!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(value)) {
+              if (
+                !/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(
+                  value,
+                )
+              ) {
                 return (
                   t('newPasswordPolicy') ||
                   'Contains letters, numbers, and special characters. 8 or more digits.'
@@ -118,24 +119,19 @@ function Password() {
           )}
         />
 
-        {errors?.passwordConfirm && <Alert description={errors?.passwordConfirm?.message || ''} />}
+        {errors?.passwordConfirm && (
+          <Alert description={errors?.passwordConfirm?.message || ''} />
+        )}
 
-        <ul
-          style={{
-            margin: '1rem 0 0 0',
-            padding: '0 0 0 1rem',
-            fontSize: '12px',
-            lineHeight: '1.6',
-          }}
-        >
+        <ul>
           <li>{t('newPasswordPolicy')}</li>
-          {/* <li>단, 허용되는 특수문자 (~!@#$%^&*_)외 다른 특수문자는 사용할 수 없습니다.</li> */}
           <li>{t('newPasswordNotice')}</li>
         </ul>
-        <div style={{ margin: '2rem 0' }}></div>
-        <menu className="">
-          <Button type="submit" label={t('title') || 'Change Password'} isFullWidth />
-        </menu>
+        <Button
+          type="submit"
+          label={t('title') || 'Change Password'}
+          isFullWidth
+        />
       </form>
     </>
   )
@@ -143,15 +139,7 @@ function Password() {
 
 export default Password
 
-interface AlertProps {
-  description: string
-}
-
-interface PageHeadProps {
-  title: string
-}
-
-function PageHead(props: PageHeadProps) {
+function PageHead(props: { title: string }) {
   return (
     <header style={{ padding: '2rem 0' }}>
       <h1>{props.title}</h1>

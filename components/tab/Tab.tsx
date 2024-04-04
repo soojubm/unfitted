@@ -2,20 +2,21 @@ import styles from './Tab.module.css'
 
 interface TabListProps {
   tabs: Option[]
-  selected: string | number
-  src?: string
-  type?: string
+  selected: string
+  // src?: string
+  // type?: string
   // onClick: (event: React.MouseEvent<HTMLElement>) => void
-  onClick: (event: any) => void
+  onClick: any
 }
 
 function Tabs(props: TabListProps) {
   return (
-    <div className={styles.tablist} data-type={props.type}>
+    <div className={styles.tablist}>
+      {/* <div className={styles.tablist} data-type={props.type}> */}
       {props.tabs.map(tab => (
         <button
           key={tab.value}
-          name={tab.name}
+          // name={tab.name}
           value={tab.value}
           className={styles.tab}
           data-active={props.selected === tab.value}
