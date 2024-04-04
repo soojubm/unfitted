@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
@@ -94,8 +94,50 @@ function Page2() {
     setSelectedCategory(result)
   }
 
+  const [accordions, setAccordions] = useState<number[]>([1])
+
+  const handleAccordionClick = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const { name } = event.currentTarget as HTMLButtonElement
+
+      if (accordions.includes(Number(name))) {
+        const filtered = accordions.filter(
+          (accordion: number) => accordion !== Number(name),
+        )
+        setAccordions(filtered)
+      } else {
+        setAccordions(prevStates => [...prevStates, Number(name)])
+      }
+    },
+    [accordions],
+  )
+
+  console.log(accordions)
+
   return (
     <LayoutWide>
+      <div style={{ display: 'flex', gap: '.5rem' }}>
+        {[1, 2, 3, 4, 5].map((item: number) => {
+          return (
+            <div key={item}>
+              <button
+                name={String(item)}
+                onClick={handleAccordionClick}
+                style={{ background: 'crimson' }}
+              >
+                123
+              </button>
+              <div
+                style={{
+                  display: accordions.includes(item) ? 'block' : 'none',
+                }}
+              >
+                {item}
+              </div>
+            </div>
+          )
+        })}
+      </div>
       <Pagehead title="Page title" />
       <ErrorBoundary FallbackComponent={() => <div>error</div>}>
         {/* <DraggableSample /> */}
