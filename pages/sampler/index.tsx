@@ -2,21 +2,16 @@ import { useCallback, useState } from 'react'
 import Image from 'next/image'
 
 import Avatar from 'components/avatar'
-import Button from 'components/button'
-import Checkbox from 'components/checkbox'
 import Chip, { ChipGroup } from 'components/chip'
 import Group from 'components/group'
 import Modal from 'components/modal'
 import Portal from 'components/portal'
-import Radio from 'components/radio'
 import Textfield from 'components/textfield'
 // import Searchfield from 'components/searchfield'
 import Select from 'components/select'
 import Tabs from 'components/tab'
 import Tag from 'components/tag'
 import Tooltip from 'components/tooltip'
-
-import { lists } from 'services/constants'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import 'react-datepicker/dist/react-datepicker-cssmodules.css'
@@ -62,22 +57,6 @@ function Sampler() {
 
   return (
     <Layout>
-      {lists.map((item, index) => {
-        return (
-          <Item1
-            key={item.name}
-            src={item.src}
-            name={item.name}
-            status={item.status}
-            date={item.date}
-            publicKey={item.publicKey}
-            width={item.width}
-            height={item.height}
-            value={item.value}
-          />
-        )
-      })}
-      <br />
       <div className="icon-indicator">1</div>
       <br />
       <div style={{ display: 'flex', gap: '.5rem' }}>
@@ -105,16 +84,6 @@ function Sampler() {
       `}</style>
       <article className="c-tile">
         <Group>
-          <Button label="버튼" onClick={() => console.log()} />
-          <Button
-            size="small"
-            label="버튼 스몰"
-            onClick={() => console.log()}
-          />
-        </Group>
-      </article>
-      <article className="c-tile">
-        <Group>
           <Chip name="" label="칩" onClick={() => console.log()} />
           <Chip name="" label="모달 열기" onClick={handleModalClick} />
           <Select
@@ -129,18 +98,7 @@ function Sampler() {
           />
         </Group>
       </article>
-      <article className="c-tile">
-        <Radio
-          id="radio1"
-          name="radio"
-          label="Radio button"
-          isChecked={true}
-          onChange={() => console.log()}
-        />
-      </article>
-      <article className="c-tile">
-        <Checkbox name="checkbox" label="Checkbox" onChange={handleChipClick} />
-      </article>
+
       <article className="c-tile">
         <Textfield
           id="test10"

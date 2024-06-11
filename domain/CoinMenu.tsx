@@ -5,7 +5,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 // import Searchfield from 'components/searchfield'
 import Item1 from 'domain/item1/Item1'
 import Chip from 'components/chip'
-import { lists } from 'services/constants'
 
 type FormValues = {
   keyword: string
@@ -27,14 +26,10 @@ function CoinMenu() {
     defaultValues: initialFormValues,
   })
 
-  const handleAllClick = () => {
-    const values = lists.map(item => item.value)
-    if (selectedItem.length === lists.length) {
-      setselectedItem([])
-    } else {
-      setselectedItem(values)
-    }
-  }
+  // const handleAllClick = () => {
+  //   const values = lists.map(item => item.value)
+  //   setselectedItem(selectedItem.length === lists.length ? [] : values)
+  // }
 
   const handleItemClick = (event: React.MouseEvent<HTMLElement>) => {
     const { value } = event.currentTarget as HTMLButtonElement
@@ -64,10 +59,7 @@ function CoinMenu() {
 
   return (
     <section>
-      <header>
-        <h2>제목 샘플</h2>
-        <Chip name="test" label="전체선택" onClick={handleAllClick} />
-      </header>
+      <header></header>
       {/* <SearchBar /> */}
       {/* <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
@@ -80,9 +72,16 @@ function CoinMenu() {
       <div className="scrollbox">
         {searchedItems?.map(item => {
           // const isActive = tempselectedItem.includes(item.name)
-          const isActive = tempselectedItem.some(tempItem => tempItem === item.name)
+          const isActive = tempselectedItem.some(
+            tempItem => tempItem === item.name,
+          )
           return (
-            <Item1 key={item.name} item={item} isActive={isActive} onItemClick={handleItemClick} />
+            <Item1
+              key={item.name}
+              item={item}
+              isActive={isActive}
+              onItemClick={handleItemClick}
+            />
           )
         })}
       </div>

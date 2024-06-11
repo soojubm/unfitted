@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -8,11 +6,15 @@ import { ErrorBoundary } from 'react-error-boundary'
 
 import LayoutWide from 'layouts/LayoutWide'
 
-import Filters from 'domain/page2/Filters'
-import List from 'domain/page2/List'
-import { tabOptions } from 'domain/page2/TypeFilter'
+import Filters from 'domain/Filters'
+import List from 'domain/List'
+import { tabOptions } from 'domain/TypeFilter'
 import Tabs, { useTab } from 'components/tab'
 import Pagehead from 'components/pagehead'
+import Group from 'components/group'
+import Button from 'components/button'
+import Radio from 'components/radio'
+import Checkbox from 'components/checkbox'
 
 // const DraggableSample = dynamic(import('domain/page2/draggable'))
 
@@ -23,7 +25,7 @@ const navMenuList = [
 
 const INITIAL_VIEW_INDEX = 0
 
-function Page2() {
+function Page() {
   const [selectedTab, handleTabClick] = useTab(tabOptions[0].value)
 
   // const entry = useIntersectionObserver(ref, {})
@@ -116,6 +118,19 @@ function Page2() {
 
   return (
     <LayoutWide>
+      <Group>
+        <Button label="버튼" onClick={() => console.log()} />
+        <Button size="small" label="버튼 스몰" onClick={() => console.log()} />
+      </Group>
+      <Radio
+        id="radio1"
+        name="radio"
+        label="Radio button"
+        isChecked={true}
+        onChange={() => console.log()}
+      />
+      <Checkbox name="checkbox" label="Checkbox" onChange={() => {}} />
+
       <div style={{ display: 'flex', gap: '.5rem' }}>
         {[1, 2, 3, 4, 5].map((item: number) => {
           return (
@@ -190,7 +205,7 @@ function Page2() {
   )
 }
 
-export default Page2
+export default Page
 
 export async function getStaticProps({ locale, locales }: any) {
   return {

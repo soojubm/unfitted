@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { filteredDateState } from 'domain/page2/CustomDateChip'
+import { filteredDateState } from 'domain/CustomDateChip'
 import { getYesterdayDate } from 'services/date'
 
 const INITIAL_START_DATE = getYesterdayDate()

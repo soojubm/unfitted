@@ -4,7 +4,7 @@ import {
   STATUS_2_VALUE,
   STATUS_3_VALUE,
 } from 'services/constants'
-import MultipleFilterField from '../filters/MultipleFilterField'
+import MultipleFilterField from './filters/MultipleFilterField'
 import { useRouter } from 'next/router'
 
 const INITIAL_STATE = STATUS_1_VALUE

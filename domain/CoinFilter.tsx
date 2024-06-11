@@ -1,10 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
 
 import Chip from 'components/chip'
 
-import { atom, useRecoilState } from 'recoil'
-import { useTranslation } from 'next-i18next'
+import { atom } from 'recoil'
 import Modal from 'components/modal'
 import CoinMenu from './CoinMenu'
 
@@ -17,11 +15,10 @@ export const coinFilterState = atom({
 interface CoinFilterProps {}
 
 function CoinFilter(props: CoinFilterProps) {
-  const { t } = useTranslation('')
   // const { data: currencyData } = useQuery(['currencies'], fetchCurrenies)
 
   const [isOpen, setIsOpen] = useState(false)
-  const handleModalClick = () => setIsOpen((prevState: boolean) => !prevState)
+  const handleModalClick = () => setIsOpen(prevState => !prevState)
 
   return (
     <div className="filter-row">

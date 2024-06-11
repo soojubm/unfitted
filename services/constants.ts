@@ -4,19 +4,6 @@ export const FIRST_START_DATE = new Date('2022-12-06')
 export const ACCESS_TOKEN = 'accessToken'
 export const REFRESH_TOKEN = 'refreshToken'
 
-export const lists = [
-  {
-    src: '/.png',
-    name: '빗썸',
-    status: '연동 완료',
-    date: '2022. 12. 07.',
-    publicKey: '',
-    width: 92,
-    height: 43,
-    value: '',
-  },
-]
-
 // 이게 맞나...
 export const STATUS_1 = '상태1'
 export const STATUS_2 = '상태1'
